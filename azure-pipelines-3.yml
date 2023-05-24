@@ -3,6 +3,9 @@ trigger:
   - Main
 pool:
   name: Default
+  demands:
+    - msbuild
+    - Agent.Version -gtVersion 2.163.1
 steps:
   - task: UseDotNet@2
     inputs:
