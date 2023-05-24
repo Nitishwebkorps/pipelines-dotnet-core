@@ -1,8 +1,9 @@
-name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
+Name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
 trigger:
   - Main
 pool:
-  name: Default
+  # name: Default
+  vmImage: ubuntu-latest
 
 steps:
   - task: UseDotNet@2
@@ -13,3 +14,16 @@ steps:
     inputs:
       solution: '**/*.sln'
       msbuildArguments: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
+
+# Name:trigger:
+# - master
+
+# pool:
+#   vmImage: ubuntu-latest
+
+# variables:
+#   buildConfiguration: 'Release'
+
+# steps:
+# - script: dotnet build --configuration $(buildConfiguration)
+#   displayName: 'dotnet build $(buildConfiguration)'
