@@ -2,10 +2,8 @@ name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
 trigger:
   - Main
 pool:
-  name: Default
-  demands:
-    - msbuild
-    - Agent.Version -gtVersion 2.163.1
+  name: custom_agent
+
 steps:
   - task: UseDotNet@2
     inputs:
